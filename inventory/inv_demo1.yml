@@ -1,0 +1,8 @@
+all:
+  children:
+    ibus:
+      hosts:
+        node1.asp.com:
+        node2.asp.com:
+  vars:
+    mnemonic: cern_cwim
