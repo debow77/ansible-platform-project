@@ -6,7 +6,7 @@
 
   tasks:
 
-    - name: Run ls
+    - name: Run ls on /home
       ansible.builtin.command: ls -ltr /home
       register: ls
       changed_when: false

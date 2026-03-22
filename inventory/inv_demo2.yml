@@ -5,4 +5,4 @@ all:
         node3.asp.com:
         node4.asp.com:
   vars:
-    mnemonic: cern_cwim
+    mnemonic: abc_123
