@@ -1,0 +1,12 @@
+all:
+  children:
+    ibus:
+      hosts:
+        node3.asp.com:
+          ansible_host: 10.0.0.3
+          role: app
+        node4.asp.com:
+          ansible_host: 10.0.0.4
+          role: db
+      vars:
+        mnemonic: abc_123

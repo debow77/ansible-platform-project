@@ -1,0 +1,11 @@
+all:
+  vars:
+    global_var: something
+
+  children:
+    ibus:
+      hosts:
+        node3.asp.com:
+        node4.asp.com:
+      vars:
+        mnemonic: abc_123
