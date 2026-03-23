@@ -1,5 +1,5 @@
 all:
-  children
+  children:
     ibus:
       hosts:
         node3.asp.com:
