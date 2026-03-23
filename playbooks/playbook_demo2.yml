@@ -2,7 +2,7 @@
 
 - name: DEMO List home dir
   gather_facts: false
-
+  hosts: all
 
   tasks:
 
