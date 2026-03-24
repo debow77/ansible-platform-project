@@ -1,12 +1,55 @@
 ---
+- name: Demo Playbook (safe, no changes, FQCN)
+  hosts: localhost
+  gather_facts: true
 
-- name: DEMO List home dir
-  gather_facts: false
-  hosts: all
+  vars:
+    demo_message: "Hello from Ansible"
+    demo_list:
+      - apple
+      - banana
+      - cherry
 
   tasks:
 
-    - name: Run ls
-      ansible.builtin.command: ls -ltr /home
-      register: ls
+    - name: Show a simple message
+      ansible.builtin.debug:
+        msg: "{{ demo_message }}"
+
+    - name: Show gathered facts (hostname)
+      ansible.builtin.debug:
+        msg: "Running on {{ ansible_hostname }}"
+
+    - name: Loop through a list
+      ansible.builtin.debug:
+        msg: "Item: {{ item }}"
+      loop: "{{ demo_list }}"
+
+    - name: Run a harmless command
+      ansible.builtin.command:
+        cmd: echo "This is a test command"
+      register: command_output
+
+    - name: Show command output
+      ansible.builtin.debug:
+        var: command_output.stdout
+
+    - name: Conditional example (only runs if true)
+      ansible.builtin.debug:
+        msg: "This runs because the condition is true"
+      when: demo_message == "Hello from Ansible"
+
+    - name: Simulate a change (but do nothing)
+      ansible.builtin.debug:
+        msg: "Pretending to make a change"
+      changed_when: true
+
+    - name: Task that always reports no change
+      ansible.builtin.debug:
+        msg: "This task is always 'ok'"
       changed_when: false
+
+    - name: Example failure (ignored)
+      ansible.builtin.command:
+        cmd: /bin/false
+      ignore_errors: true
