@@ -1,0 +1,28 @@
+all:
+  children:
+    # 🔝 Parent group
+    prod:
+      children:
+        # 👇 Child group 1
+        web:
+          hosts:
+            web1.prod.local:
+            web2.prod.local:
+        # 👇 Child group 2
+        db:
+          hosts:
+            db1.prod.local:
+            db2.prod.local:
+      vars:
+        env: production
+    # Another top-level group
+    dev:
+      children:
+        web:
+          hosts:
+            web1.dev.local:
+        db:
+          hosts:
+            db1.dev.local:
+      vars:
+        env: development
