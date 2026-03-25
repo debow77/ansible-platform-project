@@ -53,4 +53,4 @@
     - name: Example failure (ignored)
       ansible.builtin.command:
         cmd: /bin/false
-      ignore_errors: true
+      ignore_errors: false
