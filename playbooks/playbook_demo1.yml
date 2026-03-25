@@ -2,6 +2,7 @@
 - name: Demo Playbook (safe, no changes, FQCN)
   hosts: localhost
   gather_facts: true
+  connection: local
 
   vars:
     demo_message: "Hello from Ansible"
